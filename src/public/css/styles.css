@@ -27,6 +27,7 @@ p {
 
 .top-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -51,9 +52,6 @@ header ul {
 header ul li a {
     text-decoration: none;
     color: #000;
-    display: inline-block;
-    overflow: auto;
-    padding: 2px;
 }
 
 header .form .input {
@@ -70,7 +68,6 @@ header .form .input {
 
 .input-field {
     border: none;
-    outline: none;
     padding: 5px;
     overflow: hidden;
     width: 100%;
@@ -183,9 +180,9 @@ h3,
 main .form {
     padding: 10px;
 }
+
 main .form input {
     background-color: #fff;
-    outline: none;
     color: #666;
     padding: 12px 20px;
     margin: 8px 0;
@@ -199,11 +196,21 @@ main .form input {
     border-radius: 5px;
     color:#fff;
     background-color: #0044AA;
+    cursor: pointer;
   }
 
   main .form .submit:hover {
     background-color: #0022AA;
   }
+
+  main .form .borrar {
+    cursor: pointer;
+  }
+  
+  main .form .borrar:hover {
+    background-color: #fbf8f8;
+  }
+
   /* Register */
 
   .profile {
@@ -217,7 +224,10 @@ main .form input {
     margin: 15px;
   }
 
-
+  .login .submit {
+    cursor: pointer;
+  }
+  
 /* Footer */
 
 #footer {
@@ -247,20 +257,37 @@ main .form input {
 @media (min-width: 361px) {
 
     /* Header */
+    
+    .top-header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+    }
+
+    .copy-header,
+    .logo {
+        padding: 0;
+    }
+
+    .copy-header {
+        text-align: right;
+        margin: 0;
+    }
 
     .bottom-header { 
         display: flex;
         justify-content: space-between;
-        width: 100%;
-        overflow: auto;
+        gap: .5rem;
     }
 
     .bottom-header ul {
         display: flex;
+        gap: .5rem;
     }
 
     .bottom-header ul li {
-        padding: 2px;
+        flex-grow: 1;
+        flex-shrink: 1;
     }
 
     div.burger-menu {
@@ -303,16 +330,6 @@ main .form input {
 }
 
 @media (min-width: 769px) {
-
-    .top-header,
-    .bottom-header {
-        max-width: 769px;
-        margin: auto;
-    }
-
-    .copy-header {
-        text-align: right;
-    }
 
     header .logo,
     header .form {
